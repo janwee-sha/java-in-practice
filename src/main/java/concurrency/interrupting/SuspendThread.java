@@ -1,12 +1,12 @@
 package concurrency.interrupting;
 
-import concurrency.annotation.NotThreadSafe;
+import concurrency.annotation.DeadLock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-@NotThreadSafe
+@DeadLock
 public class SuspendThread {
     private static final Lock lock = new ReentrantLock();
 
