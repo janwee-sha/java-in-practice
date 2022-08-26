@@ -1,4 +1,4 @@
-> The following statments is a quote from Cay S. Horstman's [Core Java](https://horstmann.com/corejava/) (10th Edition) 
+> The following statments are some reading notes of Cay S. Horstman's [Core Java](https://horstmann.com/corejava/) (10th Edition) 
 
 # Volumn 1
 
