@@ -1,4 +1,4 @@
-package container;
+package collection;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ public class Iteration {
         List<String> al = new ArrayList<>(Arrays.asList("a b c d e f g h i j".split(" ")));
         List<String> ll = new LinkedList<>(al);
 
-        System.out.println(al.removeIf("a"::equals) ? "some elements deleted." : "none of elements deleted.");
+        System.out.println(al.removeIf("a"::equals) ? "elements that equals a deleted." : "no element deleted.");
 
         al.listIterator().add("a1");
 

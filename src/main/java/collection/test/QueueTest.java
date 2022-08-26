@@ -1,7 +1,5 @@
-package container.test;
+package collection.test;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,16 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class QueueTest {
     private final String[] words = "My dog has fleas".split(" ");
     private Queue<String> queue;
-
-    @BeforeAll
-    static void beforeAll() {
-        System.out.println(">>> Starting StackTest.");
-    }
-
-    @AfterAll
-    static void afterAll() {
-        System.out.println(">>> Finished StackTest.");
-    }
 
     @BeforeEach
     public void initialize() {

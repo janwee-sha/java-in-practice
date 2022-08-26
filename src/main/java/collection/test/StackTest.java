@@ -1,4 +1,4 @@
-package container.test;
+package collection.test;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
