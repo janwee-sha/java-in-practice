@@ -1,6 +1,6 @@
 > The following statments are some reading notes of Cay S. Horstman's [Core Java](https://horstmann.com/corejava/) (10th Edition) 
 
-# Volumn 1
+# Volume I
 
 ## Chapter 7 Exceptions, Assertions, and Logging
 
@@ -555,3 +555,45 @@ interface Future<V> {
 可用cancel方法取消该计算。若计算还未开始，它被取消且不再开始。若计算运行中，那么如果mayInterrupt参数为true，它就被中断。
 
 FutureTask包装器是一种非常便利的机制，可将Callable转换成Future和Runnable，它同时实现二者的接口。
+
+# Volume II
+
+## Chapter 2. Input and Output
+
+### 2.1 Input/Output Streams
+
+In the Java API, an object from which we can read a sequence of bytes is called an *input stream*. An object to which we can write a sequence of bytes is called an *output stream*. These resources and destinations of bytes can be files, network connections and even blocks of memory. The abstract classes `InputStream` and `OutputStream` forms the basis for a hierachy of input/output classes. Byte-oriented I/O streams are inconvenient for processing information stored in Unicode (Unicode uses multiple bytes per character). Therefore, a separate hierarchy provides classes for processing Unicode characters that inhert from the abstract `Reader` and `Writer` classes. These classes have read and write operations that based on two-byte `char` values (that is, UTF-16 code units) rather than `byte` values.
+
+#### 2.1.1 Reading and Writing Bytes
+
+The `Inputstream` class has an abstract method:
+
+```
+abstract int read()
+```
+
+This method reads one byte and return the byte that was read, or `-1` if it encounters the end of the input source. 
+
+Since Java 9, there is a very useful method to read all bytes of a stream:
+
+```
+byte[] bytes = in.readAllBytes();
+```
+
+When you have finished reading or writing to an input/output stream, close it by calling `close` method.
+
+[Here](https://note.youdao.com/) are a test unit that test the `read` method of `InputStream` and `write` method of `OutputStream`. 
+
+#### 2.1.2 The Complete Stream Zoo
+
+```mermaid
+	graph BT
+    B(AudioInputStream) --> A(InputStream)
+    C(ByteArrayInputStream) --> A
+    D(FileInputStream) --> A
+    E(PipedInputStream) --> A
+    F(FilterInputStream) --> A
+    G(SequenceInputStream) --> A
+    H(StringBufferInputStream) --> A
+    I(ObjectInputStream) --> A
+```
