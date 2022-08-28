@@ -582,7 +582,7 @@ byte[] bytes = in.readAllBytes();
 
 When you have finished reading or writing to an input/output stream, close it by calling `close` method.
 
-[Here](https://note.youdao.com/) are a test unit that test the `read` method of `InputStream` and `write` method of `OutputStream`. 
+[Here](https://github.com/janwee-sha/java-in-practice/blob/main/src/main/java/io/test/InOutStreamTest.java) are a test unit that test the `read` method of `InputStream` and `write` method of `OutputStream`. 
 
 #### 2.1.2 The Complete Stream Zoo
 
