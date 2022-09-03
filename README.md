@@ -597,3 +597,67 @@ When you have finished reading or writing to an input/output stream, close it by
     H(StringBufferInputStream) --> A
     I(ObjectInputStream) --> A
 ```
+
+```mermaid
+	graph BT
+    B(ByteArrayOutputStream) --> O(OutputStream)
+    F(FileOutputStream) --> O
+    FTR(FilterOutputStream) --> O
+    P(PipedOutputStream) --> O
+    OO(ObjectOutputStream) --> O
+```
+
+```mermaid
+	graph BT
+    B(BufferedReader) --> R(Reader)
+    C(CharArrayReader) --> R
+    F(FilterReader) --> R
+    I(InputStreamReader) --> R
+    P(PipedReader) --> R
+    S(StringReader) --> R
+    FileReader --> I
+```
+
+```mermaid
+	graph BT
+    B(BufferedWriter) --> W(Writer)
+    C(CharArrayWriter) --> W
+    F(FilterWriter) --> W
+    O(OutputStreamWriter) --> W
+    P(PipedWriter) --> W
+    PRNT(PrintWriter) --> W
+    S(StringWriter) --> W
+    FileWriter --> O
+```
+
+As you saw, the `InputStream` and `OutputStream` classes let you read and write individual bytes and arrays of bytes.
+
+For Unicode text, on the other hand, you can use subclasses of the abstract classes `Reader` and `Writer`.
+
+There are four additional interfaces: `Closeable`,`Flushable`,`Readable`, and `Appendable`.
+
+`Closeable` has the method
+
+```
+void close() throws IOException
+```
+
+The classes `InputStream`, `OutputStream`, `Reader`, and `Writer` all implement the `Closeable` interface.
+
+`Flushable` has the method
+
+```
+void flush()
+```
+
+`OutputStream` and `Writer` implement the interface.
+
+The `Readable` interface has a single method
+
+```
+int read(CharBuffer cb) 
+```
+
+[Here](https://github.com/janwee-sha/java-in-practice/blob/main/src/main/java/io/test/ReaderWriterTest.java) is a unit test that tests the performance of the `Reader` and `Writer`.
+
+The `CharBuffer` class has methods for sequential and random read/write access. It represents an in-memory buffer or a memory-mapped file. 
