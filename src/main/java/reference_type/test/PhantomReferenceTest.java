@@ -20,7 +20,7 @@ public class PhantomReferenceTest {
     @Test
     public void testLifeCycle() {
         System.out.println("Running testLifeCycle()");
-        Reference ref = new PhantomReference<>(new T(), QUEUE);
+        Reference<T> ref = new PhantomReference<>(new T(), QUEUE);
         assertNull(ref.get());
 
         new Thread(() -> {

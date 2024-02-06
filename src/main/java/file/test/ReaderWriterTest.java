@@ -1,4 +1,4 @@
-package io.test;
+package file.test;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,14 +9,14 @@ import java.nio.file.Files;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class InOutStreamTest {
-    private static final byte[] BYTES = new byte[]{'a', 'b', 'c'};
-    private File file = new File("words.txt");
+public class ReaderWriterTest {
+    private static final char[] CHARS = new char[]{'你', '好', '！'};
+    private File file = new File("content.txt");
 
     @BeforeEach
     public void beforeEach() throws IOException {
-        try (OutputStream out = new FileOutputStream(file)) {
-            out.write(BYTES);
+        try (Writer out = new FileWriter(file)) {
+            out.write(CHARS);
         }
     }
 
@@ -27,10 +27,10 @@ public class InOutStreamTest {
 
     @Test
     public void testReadWrite() throws IOException {
-        try (InputStream in = new FileInputStream(file)) {
+        try (Reader in = new FileReader(file)) {
             int i = 0;
-            while (in.available() > 0) {
-                assertEquals(BYTES[i++], in.read());
+            while (in.ready()) {
+                assertEquals(CHARS[i++], in.read());
             }
         }
     }

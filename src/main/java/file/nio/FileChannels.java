@@ -1,4 +1,4 @@
-package io;
+package file.nio;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -11,7 +11,7 @@ public class FileChannels {
         ByteBuffer buff = ByteBuffer.allocate(1024);
         while (channel.read(buff) > 0) {
             buff.flip();
-            System.out.println(StandardCharsets.UTF_8.newDecoder().decode(buff).toString());
+            System.out.println(StandardCharsets.UTF_8.newDecoder().decode(buff));
             buff.clear();
         }
         channel.close();
